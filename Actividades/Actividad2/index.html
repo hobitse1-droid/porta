@@ -15,6 +15,28 @@
         padding: 0;
         box-sizing: border-box;
     }
+    .back-btn {
+    display: inline-block;
+    background: linear-gradient(145deg, #14213d, #000814);
+    color: #e0e6f0;
+    border: 1px solid #1b263b;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background: linear-gradient(145deg, #1b263b, #14213d);
+    color: #4cc9f0;
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.4);
+    transform: translateY(-2px);
+}
 
     body {
         font-family: 'EB Garamond', 'Garamond', serif;
@@ -478,7 +500,7 @@ function parseNumber(input) {
             return -Math.sqrt(radicand);
         }
     }
-
+    
     // Manejar función sqrt() con cualquier expresión dentro
     if (input.includes('sqrt(')) {
         // Patrón para encontrar sqrt(cualquier expresión)
