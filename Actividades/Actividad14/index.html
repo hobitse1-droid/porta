@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simbólica Ecuaciones Lineales</title>
+
+    <!-- 🕯️ Fuentes góticas sobrias -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ⚜️ Estilo oscuro elegante con piedra y bronce */
+
+        body {
+            font-family: 'Cinzel', 'Garamond', serif;
+            background: radial-gradient(circle at top, #2c2c2c 0%, #1c1c1c 80%);
+            color: #e6e2d3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #2b2b2b, #1e1e1e);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #4a3b2a;
+            box-shadow:
+                0 0 25px rgba(0, 0, 0, 0.7),
+                inset 0 0 15px rgba(70, 50, 30, 0.25);
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            color: #d0b07a;
+            text-shadow: 0 0 8px rgba(208, 176, 122, 0.4);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: #c2a76a;
+            border-bottom: 2px solid #5a4a32;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #5a4a32, transparent);
+            margin: 40px 0;
+        }
+
+        .solver-section {
+            margin-bottom: 30px;
+        }
+
+        .solver-section p {
+            margin-bottom: 15px;
+            color: #d8d3c0;
+        }
+
+        /* ⚗️ Inputs estilo piedra */
+        #ecuacion,
+        #formulaLiteral {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #6e5b43;
+            border-radius: 8px;
+            background-color: #222;
+            color: #f0ead6;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+            box-shadow: inset 0 0 6px rgba(200, 180, 120, 0.15);
+        }
+
+        .formula-input-container label {
+            display: block;
+            font-weight: bold;
+            color: #cfa85d;
+            margin-bottom: 8px;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* 🔮 Botones estilo bronce pulido */
+        button {
+            background: linear-gradient(145deg, #5a4a32, #3a2f1f);
+            color: #f5f0e1;
+            padding: 12px 28px;
+            border: 1px solid #7b6646;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #7b6646, #5a4a32);
+            color: #fff8e6;
+            box-shadow: 0 0 10px rgba(195, 160, 90, 0.4);
+        }
+
+        /* 📜 Caja de resultados estilo mármol oscuro */
+        .result-box {
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid #4a3b2a;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 1.05em;
+            color: #e8e3cf;
+            margin-top: 15px;
+            min-height: 20px;
+            box-shadow: inset 0 0 15px rgba(70, 50, 30, 0.3);
+        }
+
+        .result-box:empty {
+            display: none;
+        }
+
+        .error-message {
+            color: #e76e55;
+            font-weight: bold;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        /* 📜 Tablas */
+        .result-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #2a2a2a;
+            color: #f0e6c8;
+        }
+
+        .result-box table thead {
+            background-color: #3b3220;
+            color: #d6b77a;
+            text-transform: uppercase;
+        }
+
+        .result-box table th,
+        .result-box table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #5a4a32;
+        }
+
+        .result-box table tbody tr:nth-child(even) {
+            background-color: #232323;
+        }
+
+        .result-box table tbody tr:hover {
+            background-color: #3a2f1f;
+        }
+
+        .result-box .formula-original {
+            background-color: #2d2616;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #d0b07a;
+            border-left: 4px solid #7b6646;
+        }
+
+        .result-box .nota-didactica {
+            background-color: #383022;
+            border-left: 4px solid #b08b52;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #f0e6c8;
+            font-style: italic;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora Simbólica de Ecuaciones</h1>
+        <h2>Tecnológico de Software</h2>
+        <h2>Fundamentos de Álgebra</h2>
+        <h2>Prof. Jorge Javier Pedroza Romero</h2>
+        <h2>Alumno. Patricio Medina Batun, Grupo 1B</h2>
+
+        <section class="solver-section">
+            <h2>1. Solución de Ecuaciones de una Variable (x)</h2>
+            <p>Introduce la ecuación lineal para despejar <strong>x</strong> (ej: 2x + 3 = x + 8):</p>
+            <input type="text" id="ecuacion" value="2x + 3 = x + 8" placeholder="Ej: 2x + 3 = x + 8" title="Introduce la ecuación lineal para despejar x">
+            <button onclick="resolverEcuacionParseada()">Resolver</button>
+            <div id="resDespejeParseado" class="result-box"></div>
+            <div id="mensajeError" class="error-message"></div>
+        </section>
+
+        <hr>
+
+        <section class="solver-section">
+            <h2>2. Despeje Simbólico de Fórmulas</h2>
+            <p>Introduce cualquier fórmula matemática (ej: C = 5(F - 32)/9):</p>
+
+            <div class="formula-input-container">
+                <label for="formulaLiteral">Fórmula:</label>
+                <input type="text" id="formulaLiteral" value="C = 5(F - 32)/9" placeholder="Ej: T = F*c/r">
+            </div>
+
+            <button onclick="procesarFormulaLiteral()">Generar Despejes Simbólicos</button>
+
+            <div id="resFormulaLiteral" class="result-box"></div>
+            <div id="mensajeErrorFormula" class="error-message"></div>
+        </section>
+    </div>
+
+    <script>
+        // --- JavaScript Original sin cambios ---
+        function cleanString(str) { return str.replace(/\s+/g, ''); }
+
+        function resolverEcuacionParseada() {
+            const ecuacionStr = document.getElementById('ecuacion').value;
+            const resBox = document.getElementById('resDespejeParseado');
+            const errorBox = document.getElementById('mensajeError');
+            resBox.innerHTML = ''; errorBox.innerText = '';
+            try {
+                const partes = ecuacionStr.split('=');
+                if (partes.length !== 2) throw new Error("La ecuación debe contener exactamente un signo '='");
+                const ladoIzq = partes[0].trim(); const ladoDer = partes[1].trim();
+                const ecuacionFormateada = `(${ladoIzq}) - (${ladoDer})`;
+                const nodo = math.parse(ecuacionFormateada);
+                const simplificado = math.simplify(nodo);
+                const coef = extraerCoeficientes(simplificado.toString());
+                const sol = -coef.b / coef.a;
+                resBox.innerHTML = `<div class='formula-original'><strong>Ecuación Original:</strong> ${ecuacionStr}</div>
+                <p><strong>Solución:</strong> x = ${sol}</p>
+                <p><strong>Ecuación Simplificada:</strong> ${simplificado.toString()} = 0</p>`;
+            } catch (e) { errorBox.innerText = 'Error: ' + e.message; }
+        }
+
+        function extraerCoeficientes(eq) {
+            eq = eq.replace(/\s+/g, '');
+            let a = 0, b = 0;
+            const regexX = /([+-]?\d*\.?\d*)\*?x/g;
+            let match;
+            while ((match = regexX.exec(eq)) !== null) {
+                let coef = match[1];
+                if (coef === '' || coef === '+') coef = '1';
+                if (coef === '-') coef = '-1';
+                a += parseFloat(coef);
+            }
+            const sinX = eq.replace(/[+-]?\d*\.?\d*\*?x/g, '');
+            if (sinX) { try { b = math.evaluate(sinX); } catch { b = 0; } }
+            return { a, b };
+        }
+
+        document.addEventListener('DOMContentLoaded', resolverEcuacionParseada);
+    </script>
+</body>
+</html>
