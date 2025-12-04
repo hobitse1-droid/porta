@@ -14,232 +14,115 @@
             padding: 0;
             box-sizing: border-box;
         }
+body {
+    background: radial-gradient(circle at top, #0a0a1a 0%, #000000 100%);
+    color: #dce6f2;
+}
 
-        body {
-            font-family: 'EB Garamond', 'Garamond', serif;
-            background: radial-gradient(circle at top, #2c2c2c 0%, #101010 100%);
-            color: #e6e2d3;
-            min-height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
+.container {
+    background: linear-gradient(145deg, #0d1a2b, #0a0f1a);
+    border: 1px solid #1a2a4a;
+    box-shadow: 
+        0 0 25px rgba(0, 0, 0, 0.7),
+        inset 0 0 15px rgba(30, 60, 90, 0.25);
+}
 
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background: linear-gradient(145deg, #2b2b2b, #1e1e1e);
-            border-radius: 16px;
-            padding: 40px;
-            border: 1px solid #4a3b2a;
-            box-shadow: 
-                0 0 25px rgba(0, 0, 0, 0.7),
-                inset 0 0 15px rgba(70, 50, 30, 0.25);
-            animation: fadeIn 0.8s ease-in-out;
-        }
+h1 {
+    color: #4aa3ff;
+    text-shadow: 0 0 10px rgba(74, 163, 255, 0.4);
+}
 
-        h1 {
-            font-family: 'Cinzel Decorative', serif;
-            text-align: center;
-            color: #d0b07a;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(208, 176, 122, 0.3);
-            letter-spacing: 2px;
-        }
+h2 {
+    color: #66c2ff;
+    border-bottom: 1px solid #1a2a4a;
+}
 
-        h2 {
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            color: #c2a76a;
-            font-size: 1.2em;
-            margin: 5px 0;
-            border-bottom: 1px solid #5a4a32;
-            padding-bottom: 5px;
-        }
+.subtitle {
+    color: #3a6fa5;
+}
 
-        .subtitle {
-            text-align: center;
-            color: #8c7b60;
-            font-family: 'Cinzel', serif;
-            font-size: 1em;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.input-section {
+    border: 1px solid #1a2a4a;
+}
 
-        .input-section {
-            margin-bottom: 25px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #3a2f1f;
-        }
+label {
+    color: #4aa3ff;
+}
 
-        label {
-            display: block;
-            color: #cfa85d;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
+input[type="text"] {
+    background-color: #0a0f1a;
+    border: 1px solid #1a2a4a;
+    color: #dce6f2;
+}
 
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            background-color: #151515;
-            border: 1px solid #6e5b43;
-            border-radius: 6px;
-            color: #f0ead6;
-            font-family: 'Courier New', monospace;
-            font-size: 1.1em;
-            outline: none;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
+input[type="text"]:focus {
+    border-color: #4aa3ff;
+    background-color: #0d1420;
+    box-shadow: 0 0 8px rgba(74, 163, 255, 0.4);
+}
 
-        input[type="text"]:focus {
-            border-color: #d0b07a;
-            background-color: #1a1a1a;
-            box-shadow: 0 0 8px rgba(208, 176, 122, 0.2);
-        }
+.help-text {
+    color: #3a6fa5;
+}
 
-        .help-text {
-            font-size: 0.9em;
-            color: #8c7b60;
-            margin-top: 8px;
-            font-style: italic;
-        }
+.example {
+    color: #b0c4d8;
+    border-left: 2px solid #1a2a4a;
+    background: rgba(255, 255, 255, 0.03);
+}
 
-        .example {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #b0a895;
-            padding: 10px;
-            border-left: 2px solid #5a4a32;
-            background: rgba(255, 255, 255, 0.03);
-        }
+button {
+    background: linear-gradient(145deg, #1a2a4a, #0d1a2b);
+    color: #dce6f2;
+    border: 1px solid #2a4a7b;
+}
 
-        button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(145deg, #5a4a32, #3a2f1f);
-            color: #f5f0e1;
-            border: 1px solid #7b6646;
-            border-radius: 6px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            margin-top: 10px;
-        }
+button:hover {
+    background: linear-gradient(145deg, #2a4a7b, #1a2a4a);
+    box-shadow: 0 0 15px rgba(74, 163, 255, 0.4);
+}
 
-        button:hover {
-            background: linear-gradient(145deg, #7b6646, #5a4a32);
-            color: #fff;
-            box-shadow: 0 0 15px rgba(195, 160, 90, 0.3);
-            transform: translateY(-2px);
-        }
+.result-section {
+    background: #0d1a2b;
+    border: 1px solid #1a2a4a;
+}
 
-        .result-section {
-            margin-top: 30px;
-            padding: 25px;
-            background: #1a1a1a;
-            border: 1px solid #4a3b2a;
-            border-radius: 8px;
-            display: none;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-        }
+.result-title {
+    color: #4aa3ff;
+    border-bottom: 1px solid #1a2a4a;
+}
 
-        .result-section.show {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
+.process-table td {
+    border: 1px solid #1a2a4a;
+    color: #b0c4d8;
+}
 
-        .result-title {
-            color: #d0b07a;
-            font-family: 'Cinzel', serif;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #3a2f1f;
-            padding-bottom: 5px;
-        }
+.process-table tr:first-child td {
+    background: #0f1f2f;
+    color: #4aa3ff;
+    border-bottom: 2px solid #2a4a7b;
+}
 
-        .original-poly {
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            font-size: 1.2em;
-            color: #e6e2d3;
-            margin-bottom: 20px;
-            padding: 10px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 4px;
-        }
+.divisor-cell {
+    background: #0a0f1a;
+    color: #66c2ff;
+    border-right: 2px solid #2a4a7b !important;
+}
 
-        .process-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 25px;
-            font-family: 'Courier New', monospace;
-        }
+.final-result {
+    background: rgba(10, 20, 30, 0.6);
+    border-left: 4px solid #4aa3ff;
+}
 
-        .process-table td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #3a2f1f;
-            color: #b0a895;
-        }
+.final-result strong {
+    color: #66c2ff;
+}
 
-        .process-table tr:first-child td {
-            background: #252525;
-            color: #cfa85d;
-            font-weight: bold;
-            border-bottom: 2px solid #5a4a32;
-        }
+.error {
+    background: rgba(40, 0, 60, 0.6);
+    border: 1px solid #e74c3c;
+}
 
-        .divisor-cell {
-            background: #202020;
-            color: #d0b07a;
-            font-weight: bold;
-            border-right: 2px solid #5a4a32 !important;
-        }
-
-        .final-result {
-            background: rgba(40, 40, 40, 0.6);
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #d0b07a;
-        }
-
-        .final-result p {
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 1.1em;
-        }
-
-        .final-result strong {
-            color: #cfa85d;
-            font-family: 'Cinzel', serif;
-        }
-
-        .error {
-            background: rgba(60, 20, 20, 0.6);
-            color: #e74c3c;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e74c3c;
-            text-align: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
 </head>
@@ -250,7 +133,7 @@
     <h2>Tecnológico de Software</h2>
     <h2>Fundamentos de Álgebra</h2>
     <h2>Prof. Jorge Javier Pedroza Romero</h2>
-    <h2>Alumno. Patricio Medina Batun, Grupo 1B</h2>
+    <h2>Alumno. Leonnardo Torres Tellez, Grupo 1B</h2>
     <p class="subtitle">Soporta coeficientes y raíces reales y complejas</p>
 
     <div class="input-section">
